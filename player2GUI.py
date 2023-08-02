@@ -1,6 +1,7 @@
 """This is server (player2)."""
 import tkinter as tk
 from gameboard import BoardClass
+from tkinter import font
 import socket
 
 
@@ -255,32 +256,37 @@ class GUI:
         if verdict == 'stat':
             self.displayStats()
 
-
     def displayStats(self):
-        """Prints the overall stats for the player.
-        """
+        """Prints the overall stats for the player."""
         self.clearWidgets()
 
-        self.title = tk.Label(self.root, text='GAME STATS')
-        self.title.grid(row=0, column=1)
-        print(self.gameBoard.player2name)
-        self.nameLabel = tk.Label(self.root, text=f'Player : {self.username.get()}')
-        self.nameLabel.grid(row=2, column=1)
+        # Set up font
+        title_font = font.Font(family='Helvetica', size=18, weight='bold')
+        label_font = font.Font(family='Helvetica', size=12)
 
-        self.oppLabel = tk.Label(self.root, text=f'Opponent : {self.gameBoard.playerName}')
-        self.oppLabel.grid(row=4, column=1)
+        # Set up title label
+        self.title = tk.Label(self.root, text='GAME STATS', font=title_font)
+        self.title.grid(row=0, column=1, padx=10, pady=10, sticky='n')
 
-        self.winLabel = tk.Label(self.root, text=f'Number of Wins : {self.gameBoard.p2wins}')
-        self.winLabel.grid(row=6, column=1)
+        # Set up other labels
+        self.nameLabel = tk.Label(self.root, text=f'Player: {self.username.get()}', font=label_font)
+        self.nameLabel.grid(row=2, column=1, padx=10, pady=5, sticky='n')
 
-        self.lossLabel = tk.Label(self.root, text=f'Number of Losses : {self.gameBoard.p2loss}')
-        self.lossLabel.grid(row=8, column=1)
+        self.oppLabel = tk.Label(self.root, text=f'Opponent: {self.gameBoard.playerName}', font=label_font)
+        self.oppLabel.grid(row=4, column=1, padx=10, pady=5, sticky='n')
 
-        self.tieLabel = tk.Label(self.root, text=f'Number of Ties : {self.gameBoard.ties}')
-        self.tieLabel.grid(row=10, column=1)
+        self.winLabel = tk.Label(self.root, text=f'Number of Wins: {self.gameBoard.p2wins}', font=label_font)
+        self.winLabel.grid(row=6, column=1, padx=10, pady=5, sticky='n')
 
-        self.totalLabel = tk.Label(self.root, text=f'Total Games Played : {self.gameBoard.updateGamesPlayed()}')
-        self.totalLabel.grid(row=12, column=1)
+        self.lossLabel = tk.Label(self.root, text=f'Number of Losses: {self.gameBoard.p2loss}', font=label_font)
+        self.lossLabel.grid(row=8, column=1, padx=10, pady=5, sticky='n')
+
+        self.tieLabel = tk.Label(self.root, text=f'Number of Ties: {self.gameBoard.ties}', font=label_font)
+        self.tieLabel.grid(row=10, column=1, padx=10, pady=5, sticky='n')
+
+        self.totalLabel = tk.Label(self.root, text=f'Total Games Played: {self.gameBoard.updateGamesPlayed()}',
+                                   font=label_font)
+        self.totalLabel.grid(row=12, column=1, padx=10, pady=5, sticky='n')
 
 
     def disableButton(self):
