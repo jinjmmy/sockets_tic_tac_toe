@@ -1,2 +1,2 @@
 # sockets_tic_tac_toe
-This was one of my first experiences working with GUIs about 1 year ago. Apologies ahead of time for the huge chunks of code and sheer mass for the eyes to take in. My coding now is much more modularized :)
+To play locally, enter 'localhost' into the host name and a usable port number (ie. 5050) on the server side (player 2) first. Then press confirm host and port. Match the host name and the port number on the client side, and then confirm. Congratulations, you are now connected. Enter your usernames and play however many matches you would like. At the end, each players wins, ties, and losses will be displayed on the GUI.
